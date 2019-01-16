@@ -110,7 +110,7 @@ class DiffState:
         # Stores the last tokens
         self.last = Version()
 
-    def update(self, text, revision=None):
+    def update(self, text, revision=None, checksum=None):
         """
         Modifies the internal state based a change to the content and returns
         the sets of words added and removed.
@@ -120,6 +120,8 @@ class DiffState:
                 The text content of a revision
             revision : `mixed`
                 Revision metadata
+            checksum : `hashable`
+                A checksum generated from the text of a revision
 
         :Returns:
             A triple of lists:
