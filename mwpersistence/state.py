@@ -134,7 +134,7 @@ class DiffState:
             tokens_removed : `list` ( :class:`~mwpersistence.Token` )
                 Tokens that were removed while updating state.
         """
-        return self._update(text=text, revision=revision)
+        return self._update(text=text, revision=revision, checksum = checksum)
 
     def update_opdocs(self, checksum, opdocs, revision=None):
         """
