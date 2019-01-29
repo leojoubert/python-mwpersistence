@@ -60,6 +60,7 @@ import sys
 import time
 from collections import deque
 from itertools import groupby
+import hashlib
 
 import mwcli
 import mwxml.utilities
@@ -154,6 +155,9 @@ def diffs2persistence(rev_docs, window_size=50, revert_radius=15, sunset=None,
         while rev_docs:
             rev_doc = next(rev_docs)
             next_doc = rev_docs.peek(None)
+            
+            # Safest to recalculate sha1
+            rev_doc["sha1"] = sha1(bytes(text, 'utf8')).hexdigest()
 
             if next_doc is not None:
                 seconds_visible = Timestamp(next_doc['timestamp']) - \
