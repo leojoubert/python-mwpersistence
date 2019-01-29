@@ -60,7 +60,7 @@ import sys
 import time
 from collections import deque
 from itertools import groupby
-import hashlib
+from hashlib import sha1
 
 import mwcli
 import mwxml.utilities
